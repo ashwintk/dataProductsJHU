@@ -1,0 +1,67 @@
+---
+title: "BMI & Daily Calorie Intake Estimator"
+subtitle: "Developing Data Products - Course Project"
+author: "Ashwin Kumar"
+date: "November 25, 2014"
+output: slidy_presentation
+---
+
+## BMI - Body Mass Index
+
+"Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women." - <a href="http://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm">National Institute of Health</a>. <br/>
+
+Formula for calculating BMI:
+<ul>
+<ol>BMI = ( Weight in Pounds / ( Height in inches x Height in inches ) ) x 703</ol>
+<ol>BMI = ( Weight in Kilograms / ( Height in Meters x Height in Meters ) )</ol>
+</ul><br/>BMI Categories:
+<ul>
+<ol>BMI < 18.5 - Underweight</ol>
+<ol>BMI between 18.5 and 24.9 - Normal Weight</ol>
+<ol>BMI between 25 and 29.9 - Overweight</ol>
+<ol>BMI >= 30 - Obese</ol>
+</ul><br/>
+Formulas for BMI calculation and BMI categories are obtained from <a href="http://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm">
+National Institute of Health</a>.
+
+## Daily Calorie Intake Estimator
+Daily calorie Intake is the amount of the calorie a person is supposed to consume based on their age, sex and type of lifestyle (activities). Types of activities include
+<ul>
+<ol>Sedentary - Little or no exercise and no desk job</ol>
+<ol>Lightly Active - Light exercise or sports 1-3 days a week</ol>
+<ol>Moderately Active - Moderate exercise or sports 3-5 days a week</ol>
+<ol>Very Active - Hard exercise or sports 6-7 days a week</ol>
+<ol>Extremely Active - Hard daily exercise or sports and physical job</ol>
+</ul>
+Initially Base Metabolic Rate(BMR) is computed using Mifflin - St Jeor equation. Mifflin - St Jeor equation to calculate BMR (Base Metabolic Rate) is
+<ul>
+<ol>For Men: 10 X weightInKilograms + 6.25 X heightInCentiMeter - 5 X age + 5</ol>
+<ol>For Women: 10 X weightInKilograms + 6.25 X heightInCentiMeter - 5 X age -161</ol>
+</ul>Calorie requirements are computed by multiplying activity indicators (number from 1.2 to 1.9 based on the activity specified by the user) and BMR. To loose one pound per week 500 calories are subtracted from required calorie and to gain one pound per week 500 calories are added to the required calorie intake.
+
+##Demonstration of the BMI & Daily Calorie Intake Estimator
+```{r}
+computeBMI <- function(ht,wt,type){
+  if(type==1) #Standard BMI = ( Weight in Pounds / ( Height in inches x Height in inches ) ) x 703
+    (wt/ht^2) * 703
+  else # Metric BMI = ( Weight in Kilograms / ( Height in Meters x Height in Meters ) )
+    wt/ht^2
+}
+computeBMI(188,109,2)
+#This method computes base metabolic rate based on Mifflin - St Jeor equation
+computeBMR <- function(heightInCentiMeter,weightInKilograms,sex,age){
+  if(sex=="Male"){
+    10*weightInKilograms + 6.25*heightInCentiMeter - 5*age + 5
+  }else{
+    10*weightInKilograms + 6.25*heightInCentiMeter - 5*age -161
+  }
+}
+computeBMR(188,109,"Male",25)
+```
+
+## Conclusion
+
+- BMI can be very helpful for a person, to figure out what are his/her risks based on their weight and height
+- By knowing the daily calorie intake, a person can decide the what lifestyle is better for him/her.
+- This app presents the users both the above information so that they can stay healthy and live a better life.
+

@@ -1,0 +1,99 @@
+<html>
+
+<head>
+<style type="text/css">
+.knitr.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+},
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0em 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.rimage.left {
+  text-align: left;
+}
+.rimage.right {
+  text-align: right;
+}
+.rimage.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+<title>Body Mass Index and daily calorie intake calculator</title>
+</head>
+
+<body>
+<h1>Body Mass Index and daily calorie intake calculator</h1>
+<h4>This app is used to calculate Body Mass Index of a person and daily calorie intake. User should enter his/her height and weight either in standard or metric units. Once the user has entered those values, he/she should click on compute BMI button. BMI table showing various categories and risk factors  of being overweight is displayed on the side bar panel.</h4>
+
+<h4>BMI Calculation</h4>
+<p> Once the use clicks on the calculate BMI button, the values entered by the user is displayed on the main panel and the BMI value and his/her corresponding BMI category are displayed on the main panel along with a contour plot of which BMI category the user belongs to. Formula for BMI Computation <ul>
+<ol>BMI = ( Weight in Pounds / ( Height in inches x Height in inches ) ) x 703</ol>
+<ol>BMI = ( Weight in Kilograms / ( Height in Meters x Height in Meters ) )</ol>
+</ul><br/>
+Formulas for BMI calculation and BMI categories are obtained from <a href="http://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm">
+National Institute of Health</a>.
+</p>
+
+<h4>Daily Calorie Intake Estimator</h4>
+<p> Once the use clicks on Daily Calorie Intake Estimator tab on the main panel, he/she is prompted to enter age, sex and type of their activity.
+Once all the information is entered by the user and the user clicks on Compute Daily calorie intake button
+<ul>
+<ol>calories required to maintain the current weight</ol>
+<ol>calories required to loose 1 lb/week</ol>
+<ol>calories required to loose 2 lb/week</ol>
+<ol>calories required to gain 1 lb/week</ol>
+<ol>calories required to gain 2 lb/week</ol>
+</ul>are displayed. Mifflin - St Jeor equation to calculate BMR (Base Metabolic Rate) is
+<ul>
+<ol>For Men: 10*weightInKilograms + 6.25*heightInCentiMeter - 5*age + 5</ol>
+<ol>For Women: 10*weightInKilograms + 6.25*heightInCentiMeter - 5*age -161</ol>
+</ul>
+Calorie requirements are computed by multiplying activity indicators (number from 1.2 to 1.9 based on the activity specified by the user) and BMR. To loose one pound per week 500 calories are subtracted from required calorie and to gain one pound per week 500 calories are added to the required calorie intake.
+</p>
+</body>
+</html>
